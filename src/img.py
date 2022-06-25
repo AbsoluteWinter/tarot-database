@@ -16,5 +16,12 @@ for x in img_list:
         b64_string = base64.b64encode(img_file.read())
     imgs[x] = "data:image/jpeg;charset=utf-8;base64, " + b64_string.decode("utf-8")
 
+imgs1 = {}
+raw = "https://raw.githubusercontent.com/AbsoluteWinter/tarot-database/main/images/"
+for x in img_list:
+    imgs1[x] = f"{raw}{x}"
+
 # SAVE
 save_json(imgs, "imgs")
+save_json(imgs1, "imgs1")
+
