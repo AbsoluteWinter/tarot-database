@@ -1,3 +1,4 @@
+import os
 from core import load_json, here, web_name
 
 data = load_json("tarot-img_onl")["tarot_interpretations"]
@@ -30,7 +31,7 @@ def make_html_from_card(card):
             <meta charset="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1">  
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-            <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="../style.css">
         </head>
         <body>
             <div class="w3-container">
@@ -61,9 +62,16 @@ def make_html_from_card(card):
     return template
 
 
+# def make_html(card):
+#     html_content = make_html_from_card(card)
+#     with open(f"{here}/{web_name(card['name'])}/index.html","w") as html_file:
+#         html_file.writelines(html_content)
+
 def make_html(card):
     html_content = make_html_from_card(card)
-    with open(f"{here}/{web_name(card['name'])}.html","w") as html_file:
+    if not os.path.exists(f"{here}/{web_name(card['name'])}/"):
+        os.makedirs(f"{here}/{web_name(card['name'])}/")
+    with open(f"{here}/{web_name(card['name'])}/index.html","w") as html_file:
         html_file.writelines(html_content)
 
 
@@ -74,13 +82,18 @@ def get_name(data):
     return temp
 
 
+# def get_link(data):
+#     for x in data:
+#         text = f'<a href="/data/{web_name(x["name"])}.html">{x["name"]}</a></br>'
+#         print(text)
+
+
 def get_link(data):
     for x in data:
-        text = f'<a href="/data/{web_name(x["name"])}.html">{x["name"]}</a></br>'
+        text = f'<a href="/data/{web_name(x["name"])}/index.html">{x["name"]}</a></br>'
         print(text)
 
 
-# for x in data:
-#     make_html(x)
+# for x in data: make_html(x)
 
 # get_link(data)
