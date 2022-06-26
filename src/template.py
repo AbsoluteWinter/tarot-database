@@ -89,11 +89,18 @@ def get_name(data):
 
 
 def get_link(data):
+    suits = []
     for x in data:
-        text = f'<a href="/data/{web_name(x["name"])}/index.html">{x["name"]}</a></br>'
+        if x["suit"] not in suits:
+            suits.append(x["suit"])
+            if x["suit"].startswith("coins"):
+                print("</br><strong>Pentacles</strong></br>")
+            else:
+                print(f"</br><strong>{x['suit'].title()}</strong></br>")
+        text = f'<a href="https://absolutewinter.github.io/tarot-database/data/{web_name(x["name"])}">{x["name"]}</a></br>'
         print(text)
 
 
 # for x in data: make_html(x)
 
-# get_link(data)
+get_link(data)
