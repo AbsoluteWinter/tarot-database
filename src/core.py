@@ -16,3 +16,6 @@ def save_json(json_data, file_name: str,
     with open(f"{here}/{file_name}.json","w") as json_file:
         json_file.writelines(cfg)
     return None
+
+def web_name(name):
+    return "-".join(name.lower().split())

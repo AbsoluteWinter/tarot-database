@@ -1,0 +1,36 @@
+@media screen and (min-width: 992px) {
+    .box-2 {
+        margin-top: 10px;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
+
+.text_box {
+    font-size: 120%;
+    font-family: 'Courier New', Courier, monospace;
+    /* padding-left: 10%; */
+    /* padding-right: 10%; */
+}
+
+.box-2 {
+    padding-top: 20px;
+}
+
+.reverse {
+    transform: rotate(180deg);
+}
+
+#main_text {
+    font-weight: bold;
+}
+
+#tcard {
+    margin-top: 15px;
+}
+
+#credit {
+    padding-left: 20%;
+    padding-right: 20%;
+    font-size: 70%;
+}
